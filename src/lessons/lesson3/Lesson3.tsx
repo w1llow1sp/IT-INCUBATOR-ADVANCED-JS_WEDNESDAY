@@ -31,6 +31,10 @@ const Lesson3 = () => {
     const searchByType = (e: React.MouseEvent<HTMLButtonElement>) => {
         const type: string = e.currentTarget.dataset.t ? e.currentTarget.dataset.t : '';
         API.searchFilmsByType(searchNameByType, type)
+            .then((data)=>{
+                setSerachResultByType(data.Search)
+                console.log(data.Search)
+            })
     }
 
     return (
@@ -61,7 +65,18 @@ const Lesson3 = () => {
                 <button onClick={searchByType} data-t='movie'>Movie</button>
                 <button onClick={searchByType} data-t='series'>Series</button>
                 <div>
-                    {serachResultByType}
+                    {Array.isArray(serachResultByType) && serachResultByType.map((el) =>
+                        (
+
+                            <div key={el.imdbID} className={'search_card'}>
+                                <h3 className={'search_header'}>Title: {el.Title}</h3>
+                                <p className={'search_year'}>Year : {el.Year}</p>
+                                <p className={'search_type'}>Type: {el.Type}</p>
+                                <img src={el.Poster} className={'search_img'}/>
+                            </div>
+
+                        ))}
+                    {/*{serachResultByType}*/}
                 </div>
             </div>
         </div>
