@@ -65,3 +65,48 @@
   padding: 10px;
   margin-top: 5px;
 }
+
+/*lesson 3*/
+
+.search_container {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 900px;
+  justify-content: space-between;
+}
+
+.search_card {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+
+
+  max-width: 200px;
+  max-height: 350px;
+}
+
+.search_img{
+  grid-area: 1 / 1 / 4 / 2;
+  width: 100%;
+  height: 100%;
+}
+
+.search_header{
+  grid-area: 1 / 2 / 2 / 3;
+  padding: 0;
+  margin: 0;
+}
+.search_year {
+  margin: 0;
+  padding: 0;
+  grid-area: 2 / 2 / 3 / 3;
+}
+.search_type{
+  margin: 0;
+  padding: 0;
+  grid-area: 3 / 2 / 4 / 3;
+}
